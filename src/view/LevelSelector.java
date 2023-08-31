@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import models.Board;
+import models.ClassicBoard;
+import models.VariantBoard;
 
 public class LevelSelector extends JPanel {
 	private JPanel panel;
@@ -75,12 +77,11 @@ public class LevelSelector extends JPanel {
 	}
 
 	public void startGame(int level) {
-		Board board = new Board(level);
-		Game game = new Game(board);
-		game.setSize(800, 600);
-		game.setLocation(0, 0);
+		GameModeSelector gamemode = new GameModeSelector(level);
+		gamemode.setSize(800, 600);
+		gamemode.setLocation(0, 0);
 		panel.removeAll();
-		panel.add(game, CENTER_ALIGNMENT);
+		panel.add(gamemode, CENTER_ALIGNMENT);
 		panel.revalidate();
 		panel.repaint();
 	}
